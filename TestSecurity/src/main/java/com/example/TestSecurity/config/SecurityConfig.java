@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     
     // 패스워드 암호화 메소드
-    @Bean
+    @Bean("bCryptPasswordEncoder")
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
 
         return new BCryptPasswordEncoder();
@@ -23,7 +23,7 @@ public class SecurityConfig {
         // 특정 경로에 대한 인가 작업
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/join").permitAll()
+                        .requestMatchers("/login", "/join", "/joinProc").permitAll()
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/my/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/admin").hasRole("ADMIN")
