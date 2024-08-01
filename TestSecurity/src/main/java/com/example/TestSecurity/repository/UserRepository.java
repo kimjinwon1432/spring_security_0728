@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 // jpa
 @Repository("userRepository")
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {  // JpaRepository의 인자는 entity와 entity의 id 타입(int이므로 Integer)
+public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+    UserEntity findByUsername(String username);  // JpaRepository의 인자는 entity와 entity의 id 타입(int이므로 Integer)
 }

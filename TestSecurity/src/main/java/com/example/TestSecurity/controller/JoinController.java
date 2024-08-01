@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class JoinController {
 
 //    @Autowired
-    @Resource(name="joinService")
-    private JoinService joinService;
+//    private JoinService joinService;
+    private final JoinService joinService;
+    public JoinController(JoinService joinService){
+        this.joinService = joinService;
+    }
 
     @GetMapping("/join")
     public String joinP(){

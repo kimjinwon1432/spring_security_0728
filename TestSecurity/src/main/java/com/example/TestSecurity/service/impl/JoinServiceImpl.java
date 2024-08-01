@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 public class JoinServiceImpl implements JoinService {
 
     // db에 접근할 repository 및 엔티티
-//    @Autowired
-    @Resource(name="userRepository")
+    @Autowired
+//    @Resource(name="userRepository")
     private UserRepository userRepository;
 
     //autowired말고 명시적으로 선언
