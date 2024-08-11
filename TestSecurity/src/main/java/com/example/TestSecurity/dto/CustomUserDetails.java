@@ -2,6 +2,7 @@ package com.example.TestSecurity.dto;
 
 import com.example.TestSecurity.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
@@ -29,8 +30,13 @@ public class CustomUserDetails implements UserDetails {
             }
         });
         return collection;
-    }
-
+    }/*
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> collection = new ArrayList<>();
+        collection.add(new SimpleGrantedAuthority(userEntity.getRole()));
+        return collection;
+    }*/
     @Override
     public String getPassword() {
         return userEntity.getPassword();

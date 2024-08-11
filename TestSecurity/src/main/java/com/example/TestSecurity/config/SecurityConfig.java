@@ -25,8 +25,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/login", "/join", "/joinProc").permitAll()
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/my/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/my/**").hasAnyRole("USER", "ADMN")  // ROLE_이 prefix로 들어가져서 비교가 됨.
+                        .requestMatchers("/admin").hasRole("ADMN")                    // ROLE_이 prefix로 들어가져서 비교가 됨.
                         .anyRequest().authenticated()
                 );
         // form 로그인

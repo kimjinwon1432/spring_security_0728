@@ -4,6 +4,7 @@ import com.example.TestSecurity.dto.CustomUserDetails;
 import com.example.TestSecurity.entity.UserEntity;
 import com.example.TestSecurity.repository.UserRepository;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 /**
  * db로 부터 들고온 데이터를 시큐리티 컨피그에 전달
  */
+@Slf4j
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
 
